@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.apache.hive.jdbc.HiveDriver
+    url: jdbc:hive2://172.16.242.185:15030/default
+    username: spark-sql-query
+    password:
+    # 参数配置
+    hikari:
+      pool-name: hikariPool
+      minimum-idle: 2
+      maximum-pool-size: 50
+      idle-timeout: 10000
+      max-lifetime: 1800000
+      connection-test-query: SELECT 1
+      connection-timeout: 30000
+      auto-commit: false
+  http:
+    encoding:
+      force: true
